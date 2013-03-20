@@ -1,0 +1,35 @@
+{
+  "name": "jaspi",
+  "version": "0.0.1",
+  "description": "ERROR: No README.md file found!",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adaon/jaspi-node.git"
+  },
+  "keywords": [
+    "javascript",
+    "framework"
+  ],
+  "author": {
+    "name": "adaon"
+  },
+  "license": "BSD",
+  "dependencies": {
+    "underscore": "*",
+    "mongodb": "*",
+    "socket.io": "*",
+    "connect": "*",
+    "async": "*",
+    "sha1": "*",
+    "emailjs": "*",
+    "node-minify": "*"
+  },
+  "devDependencies": {
+    "tap": "*"
+  },
+  "readme": "Jaspi Node\r\n==========",
+  "readmeFilename": "README.md",
+  "_id": "jaspi@0.0.1",
+  "_from": "jaspi@*"
+}
