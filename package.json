@@ -23,7 +23,8 @@
     "async": "*",
     "sha1": "*",
     "emailjs": "*",
-    "node-minify": "*"
+    "node-minify": "*",
+    "less-middleware": "*"
   },
   "devDependencies": {
     "tap": "*"
