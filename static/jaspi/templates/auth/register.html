@@ -1,0 +1,24 @@
+<div class="jaspi_auth_black"></div>
+<div class="jaspi_auth_block">
+    
+    <img src="/jaspi/images/auth/close.png">
+    
+    <div class="header">
+        Регистрация нового пользователя
+    </div>
+    
+    <div class="label">
+        Введите регистрационные данные
+    </div>
+    
+    {{#each fields}}
+    <div class="field_block">
+        <div class="field_label">{{this.label}}:</div>
+        <input type="{{type}}" class="{{this.name}}_input" placeholder="{{this.example}}">
+    </div>
+    {{/each}}
+    
+    <div class="button">
+        Зарегистрировать
+    </div>
+</div>

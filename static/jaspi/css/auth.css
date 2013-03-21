@@ -1,0 +1,99 @@
+.jaspi_auth_black {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #333333;
+}
+
+.jaspi_auth_block {
+    font-family: 'Open Sans', 'Arial';
+    position: absolute;
+    background-color: #ededed;
+    padding:20px 25px 25px 25px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-image: url(/jaspi/images/auth/back.png);
+    width: 370px;
+    background-repeat: repeat-x;
+}
+
+.jaspi_auth_block input[type="text"],
+.jaspi_auth_block input[type="password"],
+.jaspi_auth_block input[type="phone"],
+.jaspi_auth_block input[type="email"] {
+    width: 220px;
+    height: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #c7c7c7 solid;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+    outline: none;
+}
+
+.jaspi_auth_block input:focus {
+    border: 1px #00b7ff solid;
+}
+
+.jaspi_auth_block .field_block {
+    margin-bottom: 12px;
+}
+
+.jaspi_auth_block .header {
+    color: #5a5a5a;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+.jaspi_auth_block .field_label {
+    color: #5a5a5a;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.jaspi_auth_block img {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.jaspi_auth_block .label {
+    color: #5a5a5a;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.jaspi_auth_block .button {
+    background-color: #797979;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 5px 10px 7px 10px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.jaspi_auth_block .button:hover {
+    background-color: #00b7ff;
+}
+.jaspi_auth_block .button:active {
+    position: relative;
+    top: 2px;
+}
