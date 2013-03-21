@@ -1,6 +1,6 @@
 var jaspi = jaspi || {};
 
-(function (exports) {
+(function (exports, $) {
     
     exports.View = function (view) {
         var self = view;
@@ -39,4 +39,4 @@ var jaspi = jaspi || {};
         return self;
     };
     
-}(jaspi));
+}(jaspi, jQuery));
