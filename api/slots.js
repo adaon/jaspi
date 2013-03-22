@@ -38,6 +38,7 @@ jaspi.slots = {};
             throw new RuntimeError('Slot name must be a string!');
         }
         callback = callback || function () {};
+        request = request || {};
         request.sessionKey = jaspi.auth.getSessionKey();
         socket.emit(name, request, callback);
     };

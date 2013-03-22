@@ -42,6 +42,8 @@ jaspi.views = {};
     
     exports.auth = new View({
         
+        hidable: true,
+        
         fields: [
             {
                 name: 'username',
@@ -84,7 +86,7 @@ jaspi.views = {};
             $('.jaspi_auth_block').animate({
                 top: -1000
             }, {
-                duration: 500
+                duration: 700
             });
             $('.jaspi_auth_black').animate({
                 opacity: 0
@@ -127,9 +129,9 @@ jaspi.views = {};
                         position: 'relative',
                         top: '-1000px'
                     }).show().animate({
-                        top: 0
+                        top: 50
                     }, {
-                        duration: 500,
+                        duration: 700,
                         complete: function () {
                             callback();
                         }
@@ -138,9 +140,14 @@ jaspi.views = {};
                 // State
                 self.elem = elem;
                 // Events
-                $('.jaspi_auth_black').add('.jaspi_auth_block img').click(function () {
-                    self.hide();
-                });
+                if (self.hidable) {
+                    $('.jaspi_auth_block img').show();
+                    $('.jaspi_auth_black').add('.jaspi_auth_block img').click(function () {
+                        self.hide();
+                    });
+                } else {
+                    $('.jaspi_auth_block img').hide();
+                }
                 $('.jaspi_auth_block .button').click(function () {
                     if (type === 'login') {
                         self.emit('login', {

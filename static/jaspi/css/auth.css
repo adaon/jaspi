@@ -18,6 +18,7 @@
     background-image: url(/jaspi/images/auth/back.png);
     width: 370px;
     background-repeat: repeat-x;
+    top:200px;
 }
 
 .jaspi_auth_block input[type="text"],

@@ -43,12 +43,34 @@ jaspi.auth = {};
         var sessionKey = exports.getSessionKey();
         if (!sessionKey) {
             callback(null);
+            return;
         }
         slots.call('auth.auth', {sessionKey: sessionKey}, callback);
     };
     
     exports.register = function (user, callback) {
         slots.call('auth.register', {data: user}, callback);
+    };
+    
+    exports.require = function (callback) {
+        callback = callback || function () {};
+        exports.auth(function (user) {
+            if (user) {
+                callback(user);
+            } else {
+                jaspi.views.auth.hidable = false;
+                jaspi.views.auth.login();
+                jaspi.views.auth.on('login', function (data) {
+                    exports.login(data.username, data.password, function (user) {
+                        if (user) {
+                            jaspi.views.auth.hide(function () {
+                                callback(user);
+                            });
+                        }
+                    });
+                });
+            }
+        });
     };
     
 }(jaspi.auth));
