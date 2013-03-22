@@ -1,0 +1,30 @@
+.jaspi_contextmenu_block {
+    position: absolute;
+    padding: 2px;
+    border: 1px #a0a0a0 solid;
+    background-color: #f0f0f0;
+    cursor: default;
+    
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+.jaspi_contextmenu_block .item_block {
+    padding:4px 5px 4px 20px;
+    color: #000000;
+    min-width: 150px;
+}
+.jaspi_contextmenu_block .item_block:hover {
+    background-color: #d1e2f2;
+    border: 1px #78aee5 solid;
+    padding: 3px 4px 3px 19px;
+}
+.jaspi_contextmenu_block .item_block:active {
+    position: relative;
+    top: 1px;
+}

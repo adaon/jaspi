@@ -167,11 +167,57 @@ jaspi.views = {};
             });
         },
         
+        login: function () {
+            var self = this;
+            self.show('login');
+        },
+        
+        register: function () {
+            var self = this;
+            self.show('register');
+        },
+        
     });
 
     exports.contextMenu = new View({
         
+        init: function () {
+            var self = this;
+            $(document).click(function () {
+                setTimeout(function () {
+                    if (self.elem) {
+                        self.elem.remove();
+                        delete self.elem;
+                    }
+                }, 0);
+            });
+        },
         
+        show: function (x, y, items) {
+            var self = this;
+            jaspi.templates.get('/jaspi/templates/contextmenu.html', function (t) {
+                var elem = $(t({items: items}));
+                elem.css({
+                    left: x + 'px',
+                    top: y + 'px'
+                });
+                jaspi.css.load('/jaspi/css/contextmenu.css', function () {
+                    $('body').append(elem);
+                });
+                // State
+                self.elem = elem;
+                // Events
+                self.elem.find('.item_block').click(function (event) {
+                    var name = this.dataset.name;
+                    _.each(items, function (item) {
+                        if (name === item.name) {
+                            item.callback = item.callback || item.handler || function () {};
+                            item.callback();
+                        }
+                    });
+                });
+            });
+        },
         
     });
     

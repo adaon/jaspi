@@ -34,10 +34,12 @@
     padding-left: 10px;
     padding-right: 10px;
     outline: none;
+    background-color: #eeeeee;
 }
 
 .jaspi_auth_block input:focus {
     border: 1px #00b7ff solid;
+    background-color: #ffffff;
 }
 
 .jaspi_auth_block .field_block {
