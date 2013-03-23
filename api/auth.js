@@ -52,7 +52,7 @@ jaspi.auth = {};
         slots.call('auth.register', {data: user}, callback);
     };
     
-    exports.require = function (callback) {
+    /*exports.require = function (callback) {
         callback = callback || function () {};
         exports.auth(function (user) {
             if (user) {
@@ -71,6 +71,6 @@ jaspi.auth = {};
                 });
             }
         });
-    };
+    };*/
     
 }(jaspi.auth));

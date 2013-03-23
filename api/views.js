@@ -4,19 +4,19 @@ jaspi.views = {};
 (function (exports, $) {
     
     var View = function (view) {
-        var self = view;
+        var self = view,
+            handlers = {};
         
         self.init = self.init || function () {};
-        self.handlers = {};
         
         self.on = function (name, handler) {
-            self.handlers[name] = self.handlers[name] || [];
-            self.handlers[name].push(handler);
+            handlers[name] = handlers[name] || [];
+            handlers[name].push(handler);
         };
         
         self.emit = function (name) {
             var args = _.toArray(arguments).slice(1);
-            _.each(self.handlers[name], function (handler) {
+            _.each(handlers[name], function (handler) {
                 handler.apply(self, args);
             });
         }
@@ -42,7 +42,37 @@ jaspi.views = {};
     
     exports.auth = new View({
         
-        hidable: true,
+        // Interface
+        
+        login: function () {
+            var self = this;
+            self.show('login');
+        },
+        
+        register: function () {
+            var self = this;
+            self.show('register');
+        },
+        
+        hide: function (callback) {
+            var self = this;
+            callback = callback || function () {};
+            $('.jaspi_auth_block').animate({
+                top: -1000
+            }, {
+                duration: 700
+            });
+            $('.jaspi_auth_black').animate({
+                opacity: 0
+            }, {
+                duration: 300,
+                complete: function () {
+                    self.elem.remove();
+                    delete self.elem;
+                    callback();
+                }
+            });
+        },
         
         fields: [
             {
@@ -71,32 +101,14 @@ jaspi.views = {};
             },
         ],
         
-        init: function () {},
+        // Realization
+        
+        hidable: true,
         
         centerBlock: function () {
             $('.jaspi_auth_block').css({
                 left: ($(window).width() -
                     $('.jaspi_auth_block').width()) / 2 + 'px'
-            });
-        },
-        
-        hide: function (callback) {
-            var self = this;
-            callback = callback || function () {};
-            $('.jaspi_auth_block').animate({
-                top: -1000
-            }, {
-                duration: 700
-            });
-            $('.jaspi_auth_black').animate({
-                opacity: 0
-            }, {
-                duration: 300,
-                complete: function () {
-                    self.elem.remove();
-                    delete self.elem;
-                    callback();
-                }
             });
         },
         
@@ -174,16 +186,6 @@ jaspi.views = {};
             });
         },
         
-        login: function () {
-            var self = this;
-            self.show('login');
-        },
-        
-        register: function () {
-            var self = this;
-            self.show('register');
-        },
-        
     });
 
     exports.contextMenu = new View({
@@ -200,7 +202,7 @@ jaspi.views = {};
             });
         },
         
-        show: function (x, y, items) {
+        show: function (items, x, y) {
             var self = this;
             jaspi.templates.get('/jaspi/templates/contextmenu.html', function (t) {
                 var elem = $(t({items: items}));

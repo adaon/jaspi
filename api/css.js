@@ -9,7 +9,7 @@ jaspi.css = {};
             var elem = $('<style>');
             elem.html(content);
             $('head').append(elem);
-            callback();
+            callback(content);
         });
     };
     
