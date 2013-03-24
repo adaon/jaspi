@@ -4,13 +4,15 @@ jaspi.debug.logs.setLogger(new jaspi.debug.logs.ConsoleLogger());
 
 var project = new jaspi.project.Project();
 
-project.addApplication(new jaspi.project.Application({
+var chat = new jaspi.project.Application({
     url: '/chat/',
-    handler: function (request, response, callback) {
-        callback('This is chat!');
-    }
-}));
+    handler: './index.html'
+});
 
-console.log(project.apps);
+chat.addSlot('sum', function (request, callback) {
+    callback(request.a + request.b);
+});
+
+project.addApplication(chat);
 
 project.start();
