@@ -1,6 +1,6 @@
 (function (exports, $) {
     
-    var Auth = new jaspi.classes.Class({
+    exports.auth = new jaspi.views.View({
         
         // Interface
         
@@ -146,13 +146,8 @@
                     self.centerBlock();
                 });
             });
-        },
-        
-        extends: jaspi.views.View
+        }
         
     });
-
-    exports.Auth = Auth;
-    exports.auth = new Auth();
     
 }(jaspi.views, jQuery));

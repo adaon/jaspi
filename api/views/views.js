@@ -20,11 +20,17 @@ jaspi.views = {};
                     }
                     self.templates[name] = Handlebars.compile(content.trim());
                 });
+                delete options.templates;
             }
             
             if (options.starter) {
                 $(_.bind(options.starter, self));
+                delete options.starter;
             }
+            
+            _.each(options, function (value, name) {
+                self[name] = value;
+            });
         },
         
         // Realization

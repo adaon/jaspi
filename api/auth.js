@@ -3,8 +3,6 @@ jaspi.auth = {};
 
 (function (exports) {
     
-    var slots = jaspi.slots;
-    
     exports.getSessionKey = function () {
         return localStorage.getItem('jaspi.auth.sessionKey');
     };
@@ -18,7 +16,7 @@ jaspi.auth = {};
     };
         
     exports.login = function (username, password, callback) {
-        slots.call('auth.login', {
+        jaspi.project.callSlot('auth.login', {
             username: username,
             password: password
         }, function (user, sessionKey) {
@@ -31,12 +29,13 @@ jaspi.auth = {};
     
     exports.logout = function (callback) {
         var sessionKey = exports.getSessionKey();
+        callback = callback || function () {};
         if (!sessionKey) {
             callback();
             return;
         }
         exports.removeSessionKey();
-        slots.call('auth.logout', {sessionKey: sessionKey}, callback);
+        jaspi.project.callSlot('auth.logout', {sessionKey: sessionKey}, callback);
     };
     
     exports.auth = function (callback) {
@@ -45,11 +44,11 @@ jaspi.auth = {};
             callback(null);
             return;
         }
-        slots.call('auth.auth', {sessionKey: sessionKey}, callback);
+        jaspi.project.callSlot('auth.auth', {sessionKey: sessionKey}, callback);
     };
     
     exports.register = function (user, callback) {
-        slots.call('auth.register', {data: user}, callback);
+        jaspi.project.callSlot('auth.register', {data: user}, callback);
     };
     
     exports.middleware = {
