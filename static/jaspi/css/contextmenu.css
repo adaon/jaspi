@@ -12,6 +12,9 @@
     user-select: none;
     
     box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    
+    font-family: Arial;
+    font-size: 12px;
 }
 
 .jaspi_contextmenu_block .item_block {

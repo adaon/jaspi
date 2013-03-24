@@ -52,6 +52,12 @@ jaspi.auth = {};
         slots.call('auth.register', {data: user}, callback);
     };
     
+    exports.middleware = {
+        sessions: function (request) {
+            request.sessionKey = exports.getSessionKey();
+        }
+    };
+    
     /*exports.require = function (callback) {
         callback = callback || function () {};
         exports.auth(function (user) {
