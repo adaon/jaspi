@@ -24,7 +24,8 @@
     "sha1": "*",
     "emailjs": "*",
     "node-minify": "*",
-    "less-middleware": "*"
+    "less-middleware": "*",
+    "wrench": "*"
   },
   "devDependencies": {
     "tap": "*"
