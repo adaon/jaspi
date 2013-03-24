@@ -9,7 +9,7 @@ var chat = new jaspi.project.Application({
     handler: './index.html'
 });
 
-chat.addSlot('sum', function (request, callback) {
+project.addSlot('sum', function (request, callback) {
     callback(request.a + request.b);
 });
 
