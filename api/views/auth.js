@@ -7,13 +7,17 @@
         login: function (callback) {
             var self = this;
             self.show('login');
-            self.once('login', callback);
+            if (callback) {
+                self.once('login', callback);
+            }
         },
         
         register: function (callback) {
             var self = this;
             self.show('register');
-            self.once('register', callback);
+            if (callback) {
+                self.once('register', callback);
+            }
         },
         
         hide: function (callback) {

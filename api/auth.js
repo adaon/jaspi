@@ -57,15 +57,14 @@ jaspi.auth = {};
         }
     };
     
-    /*exports.require = function (callback) {
+    exports.require = function (callback) {
         callback = callback || function () {};
         exports.auth(function (user) {
             if (user) {
                 callback(user);
             } else {
                 jaspi.views.auth.hidable = false;
-                jaspi.views.auth.login();
-                jaspi.views.auth.on('login', function (data) {
+                jaspi.views.auth.login(function (data) {
                     exports.login(data.username, data.password, function (user) {
                         if (user) {
                             jaspi.views.auth.hide(function () {
@@ -76,6 +75,6 @@ jaspi.auth = {};
                 });
             }
         });
-    };*/
+    };
     
 }(jaspi.auth));
